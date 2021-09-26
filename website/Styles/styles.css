@@ -1,0 +1,32 @@
+#website_header {
+    overflow: hidden;
+    background-color: green;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+}
+
+#Heading_Logo{
+    width: 200px;
+    height: 100px;
+    display: block;
+    float: left;
+    border: red solid 1px;
+}
+  
+#Site_Nav {
+    float: left;    
+}
+
+#Site_Nav li{
+    float: left;
+    list-style-type: none;
+}
+
+#Site_Nav li a{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
