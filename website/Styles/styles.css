@@ -1,32 +1,78 @@
-#website_header {
-    overflow: hidden;
-    background-color: green;
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
+body {
+    background-color: #46fc8c;
 }
 
+#website_header {
+    overflow: hidden;
+    background-color: #5bfc46;
+    position: relative; 
+    top: 0; 
+    max-width: 900px;
+    /*height: 100px;*/
+    margin: 10px auto 10px auto;
+    border: white solid 3px;
+}
+
+#Website_Title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+    float: left;
+    padding: auto;
+    height: 50px;
+    box-sizing: border-box;
+    margin: auto;
+    text-align: center;
+    display:block;
+    color: #fc465b;
+}
+
+
 #Heading_Logo{
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 50px;
     display: block;
     float: left;
     border: red solid 1px;
+    box-sizing: border-box;
 }
   
-#Site_Nav {
-    float: left;    
-}
+#Site_Nav ul {
+    margin: -3px;
+    padding: 0px;
+    min-width: fit-content;
+    /* max-width: 700px; */
+    border: white solid 3px;
+    list-style-type: none;
+    float: right;
+    box-sizing: content-box;
+} 
 
 #Site_Nav li{
-    float: left;
-    list-style-type: none;
+    float: left;    
+    display:block;
+    margin: auto;
 }
 
-#Site_Nav li a{
+#Site_Nav li a {
     display: block;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
+    color: white;
+    background-color: #46fc8c;
+    font-size: 1.2em;
+    margin: auto;
 }
 
+#Site_Nav li a:hover {
+    background-color: #b6fc46;
+}
+
+@media screen and (max-width: 380px) {
+    #Site_Nav li {
+	float: none;
+    }
+    #Site_Nav ul {
+	width: 100%;
+    }
+}
