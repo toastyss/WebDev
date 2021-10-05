@@ -35,3 +35,16 @@ li h3 {
         margin: 250px auto 2% auto;
     }
 }
+
+.search_page {
+    display: flex;
+}
+
+.sidebar {
+    width: 30%;
+}
+
+.content {
+    flex: 1;
+    overflow: auto;
+}

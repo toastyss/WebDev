@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,18 +8,28 @@
     <link rel="stylesheet" href="./Styles/styles.css">
     <link rel="stylesheet" href="./Styles/headerstyle.css">
 </head>
+
 <body>
 
-    <?php require_once "website_header.php"; 
-    
+    <?php require_once "website_header.php";
+
     ?>
+    <div class="search_page">
+        <aside class="sidebar">
+            <!-- Sidebar -->
+            <form method="POST" action="">
+                <input>
 
-    <form method="POST" action="">
-        <input>
+                </input>
+            </form>
+        </aside>
 
-</input>
-        <
-    </form>
+        <main class="content">
+            <!-- Search Results -->
+        </main>
+    </div>
+
+
 
 
 </body>
