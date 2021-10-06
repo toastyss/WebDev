@@ -1,12 +1,12 @@
 body {
-    background-color: #46fc8c;
+    background-color: #white;
 }
 
 #website_header {
     overflow: hidden;
-    background-color: #5bfc46;
-    position: relative; 
-    top: 0; 
+    background-color: 77F490;
+    position: relative;
+    top: 0;
     max-width: 900px;
     /*height: 100px;*/
     margin: 10px auto 10px auto;
@@ -23,7 +23,7 @@ body {
     margin: auto;
     text-align: center;
     display:block;
-    color: #fc465b;
+    color: white;
 }
 
 
@@ -59,13 +59,13 @@ body {
     padding: 5px;
     text-decoration: none;
     color: white;
-    background-color: #46fc8c;
+    background-color: 94F6A7;
     font-size: 1.2em;
     margin: auto;
 }
 
 #Site_Nav li a:hover {
-    background-color: #b6fc46;
+    background-color: #78F5D1;
 }
 
 @media screen and (max-width: 380px) {

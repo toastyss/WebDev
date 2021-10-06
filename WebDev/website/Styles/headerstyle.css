@@ -1,8 +1,8 @@
 #website_header {
     background-color: white;
     top: 0; 
-    width: 90%;
-    position: fixed;
+    width: 100%;
+    position: sticky;
     margin-bottom: 10px;
     border-bottom: solid 1px #78F5D1;
 }

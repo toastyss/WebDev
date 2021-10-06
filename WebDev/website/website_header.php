@@ -8,6 +8,9 @@
             <li><a href="">Account</a></li>
             <li><a href="">Checkout</a></li>
         </ul>
+        <div style="clear: both"></div>
     </nav>
+    <div style="clear: both"></div>
+
 
 </header>
