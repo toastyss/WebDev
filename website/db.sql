@@ -8,16 +8,16 @@ USE MoneyToU;
 CREATE TABLE Products(
     price int NOT NULL,
     currency VARCHAR(100) NOT NULL,
-    demonination SMALLINT NOT NULL,
+    denomination SMALLINT NOT NULL,
     mint_year YEAR NOT NULL,
     quality VARCHAR(100) NOT NULL DEFAULT "GOOD",
     product_status VARCHAR(100) NOT NULL DEFAULT "IN WAREHOUSE",
     quantity INT NOT NULL,
-    PRIMARY KEY(currency, demonination, mint_year, quality, product_status, quantity)
+    PRIMARY KEY(currency, denomination, mint_year, quality, product_status, quantity)
 );
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON Practical3.Task TO dbadmin@localhost;
+GRANT all privileges ON MoneyToU.* TO dbadmin@localhost;
 
 INSERT INTO Products values(100, "AUD", 5, 1997, "GOOD", "IN WAREHOUSE", 50);
 INSERT INTO Products values(33, "AUD", 10, 1997, "EXCELLENT", "IN WAREHOUSE", 20);

@@ -166,3 +166,7 @@ li h3 {
     width: fit-content;
     height: fit-content;
 }
+
+#results {
+    width: 500px;
+}

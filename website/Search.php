@@ -39,37 +39,36 @@
             <?php 
             require_once "dbconn.php";
 
-            $sql = "SELECT currency, denomination, mint_year, quality, product_status, quantity FROM Products";
+            $sql = "SELECT * FROM Products;";
 
             if($result = mysqli_query($conn, $sql))
             {
                 if(mysqli_num_rows($result) > 0)
                 {
-                    echo '<p> items </p>';
-                    echo "<ol>";
-                    while($row = mysqli_fetch_assoc($result))
+                    echo '<h1> Results </h1>', "\n";
+	            echo "\t\t\t", '<table id="results">', "\n";
+	    	    while($row = mysqli_fetch_assoc($result))
                     {
-                        echo '<li>';
-                        echo '<ul>';
-                        echo '<li>', $row["currency"], "</li>";
-                        echo '<li>', $row["denomination"], "</li>";
-                        echo '<li>', $row["mint_year"], "</li>";
-                        echo '<li>', $row["quality"], "</li>";
-                        echo '<li>', $row["product_status"], "</li>";
-                        echo '<li>', $row["quantity"], "</li>";
-                        echo '</ul>';
-                        echo '</li>';
+                        echo "\t\t\t\t", '<tr>', "\n";
+                        echo "\t\t\t\t\t", '<td>', $row["currency"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', $row["denomination"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', $row["mint_year"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', $row["quality"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', $row["product_status"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', $row["quantity"], "</td>", "\n";
+                        echo "\t\t\t\t", '</tr>', "\n";
                     }
-                    echo "</ol>";
+                    echo "\t\t\t", "</table>", "\n";
+                    myqli_free_result($result);
                 }
                 else 
                 {
-                    echo "<p> no results found </p>";
+                    echo "\t\t\t", "<p> no results found </p>";
                 }
             }
             else
             {
-                echo "<p> an error occured </p>";
+                echo "\t\t\t", "<p> sql query faliure 3</p>";
             }
             
             mysqli_close($conn);
