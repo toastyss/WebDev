@@ -58,7 +58,7 @@
                         echo "\t\t\t\t", '</tr>', "\n";
                     }
                     echo "\t\t\t", "</table>", "\n";
-                    myqli_free_result($result);
+                    mysqli_free_result($result);
                 }
                 else 
                 {
