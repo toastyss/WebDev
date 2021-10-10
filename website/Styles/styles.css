@@ -124,29 +124,21 @@ li h3 {
     justify-content: space-between;
 }
 .card_grid > div {
-    background: gray;
+    background: rgb(119,244,144);
 }
 
 .card {
     display: flex;
     flex-direction: column;
     width: auto;
-    padding: 2px;
-    margin: 5px;
+    margin: 15px 15px;
     align-items: center;
     border-radius: 1em;
-
-    /* for testing only */
-    border: 1px;
-    border-style: solid;
 }
 
 .card_cover {
     height: 30px;
     width: 100%;
-
-    /* for testing only */
-    border: 1px;
 }
 
 .card_sub{
@@ -165,6 +157,10 @@ li h3 {
     height: fit-content;
 }
 
+.card_content > img{
+    border-radius: 1em;
+}
+
 #results {
-    width: 700px;
+    width: 500px;
 }
