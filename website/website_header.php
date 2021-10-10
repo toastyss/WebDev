@@ -4,7 +4,7 @@
 
 
 <header id="website_header">
-    <a href="index.php"><img src="assets/images/Logo_Black.png" alt="Website Logo" id="Heading_Logo"></a>
+    <a href="index.php"><img src="assets/images/M2U_Black.png" alt="Website Logo" id="Heading_Logo"></a>
     <nav id="Site_Nav">
         <ul>
             <li><a href="Search.php">Search</a></li>
