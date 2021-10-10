@@ -16,8 +16,8 @@
     <div class="search_page">
         <aside class="sidebar">
             <!-- Sidebar -->
-            <form id="product_filter" action="" method="GET">
-                <input id="search_bar" type="text" placeholder="Search for item" name="search"><br>
+            <form id="product_filter" action="" method="post">
+                <input id="year" type="number" placeholder="Mint year" name="year" min="1900" max="2021"><br>
 
                 <div id="checkboxes">
                     <input id="usd_c" type="checkbox" name="currency_type" value="USD">
@@ -26,6 +26,16 @@
                     <label for="eur_c">EUR</label><br>
                     <input id="aud_c" type="checkbox" name="currency_type" value="AUD">
                     <label for="aud_c">AUD</label><br>
+                </div>
+
+                <!-- TODO Add cost, and price slider -->
+
+                <div id="sliders">
+                    <input type="range" id="higher" min="500" max="1000" step="10"><br>
+                    <label for="higher">Denomination</label><br>
+
+                    <input type="range" id="lower" min="1" max="500" step="10"><br>
+                    <label for="lower">Cost</label><br>
                 </div>
 
                 <input id="submit_btn" type="submit" value="Filter">
@@ -37,24 +47,45 @@
             <?php 
             require_once "dbconn.php";
 
-            $sql = "SELECT * FROM Products;";
+            $year = $_POST['year'];
+            $currency = $_POST['currency_type'];
+
+            $sql = "SELECT * FROM Products";
+
+            if(isset($_POST['year'])){
+                $sql = "SELECT * FROM Products WHERE mint_year = $year";
+            }
+            
+            switch ($currency)
+            {
+                case "AUD":
+                    $sql = "SELECT * FROM Products WHERE currency = 'AUD'";
+                    break;
+                case "EUR":
+                    $sql = "SELECT * FROM Products WHERE currency = 'EUR'";
+                    break;
+                case "USD":
+                    $sql = "SELECT * FROM Products WHERE currency = 'USD'";
+                    break;
+            }
+
+            if($year == NULL && $currency == NULL){
+                $sql = "SELECT * FROM Products";
+            }
 
             if($result = mysqli_query($conn, $sql))
             {
                 if(mysqli_num_rows($result) > 0)
                 {
                     echo '<h1> Results </h1>', "\n";
-	            echo "\t\t\t", '<table id="results">', "\n";
-	    	    while($row = mysqli_fetch_assoc($result))
+	                echo "\t\t\t", '<table id="results">', "\n";
+	    	        while($row = mysqli_fetch_assoc($result))
                     {
                         echo "\t\t\t\t", '<tr>', "\n";
-                        echo "\t\t\t\t\t", '<td>', '<a href=products.php',$row["currency"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element="',$row["product_id"], '"> Product</a>' ,"</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["currency"], "</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["denomination"], "</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["mint_year"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["quality"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["product_status"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["quantity"], "</td>", "\n";
                         echo "\t\t\t\t", '</tr>', "\n";
                     }
                     echo "\t\t\t", "</table>", "\n";

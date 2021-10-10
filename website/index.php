@@ -25,227 +25,130 @@
 
     <hr>
 
-    <section class="card_grid">
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
+    <div id="home_body">
+        <section class="card_grid">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
+        </section>
+        
+        <h2>Top Selling</h2>
+        <hr>
+        <section class="card_grid">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
+        </section>
+
+        <h2>On Sale</h2>
+        <hr>
+
+        <section class="card_grid">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
+            <div class="card">
+                <div class="card_content">
+                    <img src="https://via.placeholder.com/250.png">
+                </div>
+
+                <div class="card_cover">
+                    <h3 class="card_sub">$10</h3 class="card_sub">
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-    </section>
-    <h2>Top Selling</h2>
-    <dsectioniv class="card_grid">
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-        <div class="card">
-            <div class="card_content">
-                <img src="https://via.placeholder.com/250.png">
-            </div>
-            
-            <div class="card_cover">
-                <h3 class="card_sub">$10</h3 class="card_sub">
-            </div>
-        </div>
-    </section>
+        </section>
+
+    </div>
 
     <footer id="footer">
         <p>Careers (they dont exist)</p>
