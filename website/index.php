@@ -14,7 +14,7 @@
     ?>
 
     <div id="about_sec">
-        <img src="assets/images/Logo_White.png" id="logo" alt="Logo">
+        <img src="assets/images/M2U_White.png" id="logo" alt="Logo">
         <h1>MONEY 2 U</h1>
         
         <!-- about paragraph -->
