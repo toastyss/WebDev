@@ -43,22 +43,19 @@
             {
                 if(mysqli_num_rows($result) > 0)
                 {
-                    echo '<h1> Results </h1>', "\n";
-	            echo "\t\t\t", '<table id="results">', "\n";
-	    	    while($row = mysqli_fetch_assoc($result))
+                    echo '<h1> Search Results </h1>', "\n";
+	                echo "\t\t\t", '<table id="results">', "\n";
+	    	        while($row = mysqli_fetch_assoc($result))
                     {
                         echo "\t\t\t\t", '<tr>', "\n";
-                        echo "\t\t\t\t\t", '<td>', '<a href=products.php',$row["currency"], "</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element="',$row["product_id"], '"> Product</a>' ,"</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["currency"], "</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["denomination"], "</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["mint_year"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["quality"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["product_status"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["quantity"], "</td>", "\n";
                         echo "\t\t\t\t", '</tr>', "\n";
                     }
                     echo "\t\t\t", "</table>", "\n";
-                    myqli_free_result($result);
+                    mysqli_free_result($result);
                 }
                 else 
                 {
@@ -67,7 +64,7 @@
             }
             else
             {
-                echo "\t\t\t", "<p> sql query faliure 3</p>";
+                echo "\t\t\t", "<p> sql query faliure </p>";
             }
             
             mysqli_close($conn);
