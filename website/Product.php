@@ -9,19 +9,39 @@
 </head>
 
 <body>
-    <?php require_once "website_header.php";?>
+    <?php require_once "website_header.php";
     
-    <?php
     $_GET;
-    $row = $_GET["element"];
-    echo "\t\t\t\t", '<ul>', "\n";
-    echo "\t\t\t\t\t", '<li>', $row["currency"], "</li>", "\n";
-    echo "\t\t\t\t\t", '<li>', $row["denomination"], "</li>", "\n";
-    echo "\t\t\t\t\t", '<li>', $row["mint_year"], "</li>", "\n";
-    echo "\t\t\t\t\t", '<li>', $row["quality"], "</li>", "\n";
-    echo "\t\t\t\t\t", '<li>', $row["product_status"], "</li>", "\n";
-    echo "\t\t\t\t\t", '<li>', $row["quantity"], "</li>", "\n";
-    echo "\t\t\t\t", '</ul>', "\n";
+    require_once "dbconn.php";
+
+    echo "<h1>product page</h1>";
+
+    $sql = "SELECT * FROM Products WHERE product_id=?";
+
+    $statement = mysqli_stmt_init($conn);
+    $statement = mysqli_prepare($conn, $sql);
+
+    echo "<p>", $_GET['element'], "</p>";
+
+    mysqli_stmt_bind_param($statement, 's', htmlspecialchars($_GET["element"]));
+
+    if($result = mysqli_query($conn, $sql))
+    {
+        $row = mysqli_fetch_assoc($result);
+        echo "\t\t\t\t", '<ul>', "\n";
+        echo "\t\t\t\t\t", '<li>', $row["currency"], "</li>", "\n";
+        echo "\t\t\t\t\t", '<li>', $row["denomination"], "</li>", "\n";
+        echo "\t\t\t\t\t", '<li>', $row["mint_year"], "</li>", "\n";
+        echo "\t\t\t\t", '</ul>', "\n";
+
+        mysqli_free_result($result);
+    }
+    else
+    {
+        echo "\t\t\t", "<p> sql query faliure</p>";
+    }
+    mysqli_close($conn);
+
     ?>
 
 </body>
