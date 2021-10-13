@@ -48,9 +48,9 @@
     {
         echo "\t\t\t", "<p> sql query faliure</p>";
     }
-    mysqli_stmt_close($conn);
+    mysqli_close($conn);
 
-    echo "<p>end results</p>";
+    echo '<a href=Add_to_cart.php?item=', $entry,'>', 'add to cart </a>';
 
     ?>
 

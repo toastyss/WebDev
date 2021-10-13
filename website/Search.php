@@ -102,7 +102,7 @@
             }
             else
             {
-                echo "\t\t\t", "<p> sql query faliure 3</p>";
+                echo "\t\t\t", "<p> sql query faliure</p>";
             }
             
             mysqli_close($conn);
