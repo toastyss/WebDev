@@ -1,3 +1,6 @@
+<?php session_start(); 
+$_SESSION["test"] = rand(0, 100);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +13,7 @@
 <body>
 
     <?php require_once "website_header.php"; 
-    
-    ?>
-
-    <div id="about_sec">
-        <img src="assets/images/M2U_White.png" id="logo" alt="Logo">
-        <h1>MONEY 2 U</h1>
-        
-        <!-- about paragraph -->
-        <p>Here at Money 2 U, we scam you using the technology of 2006...<br>And we do it efficiently</p>
-    </div>
-
-    <h2>Featured Products</h2>
-
-    <hr>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Money 2 U</title>
-    <link rel="stylesheet" href="./Styles/styles.css">
-</head>
-<body>
-
-    <?php require_once "website_header.php"; 
+    echo "<p>", $_SESSION["test"], "</p>";
     
     ?>
 

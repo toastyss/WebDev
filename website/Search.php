@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -10,6 +11,7 @@
 
 <body>
     <?php require_once "website_header.php";
+    
 
     ?>
 
@@ -73,6 +75,8 @@
                 $sql = "SELECT * FROM Products";
             }
 
+            echo "<p>", $_SESSION["test"], "</p>";
+
             if($result = mysqli_query($conn, $sql))
             {
                 if(mysqli_num_rows($result) > 0)
@@ -82,7 +86,7 @@
 	    	        while($row = mysqli_fetch_assoc($result))
                     {
                         echo "\t\t\t\t", '<tr>', "\n";
-                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element="',$row["product_id"], '"> Product</a>' ,"</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '> Product</a>' ,"</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["currency"], "</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["denomination"], "</td>", "\n";
                         echo "\t\t\t\t\t", '<td>', $row["mint_year"], "</td>", "\n";

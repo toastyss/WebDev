@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -14,33 +15,42 @@
     $_GET;
     require_once "dbconn.php";
 
+    // require_once "db_functions";
+    // $conn = get_conn();
+
     echo "<h1>product page</h1>";
 
-    $sql = "SELECT * FROM Products WHERE product_id=?";
+    echo "<p>", $_SESSION["test"], "</p>";
+
+    $sql = "SELECT currency, denomination, mint_year 
+    FROM Products WHERE product_id=?;";
 
     $statement = mysqli_stmt_init($conn);
-    $statement = mysqli_prepare($conn, $sql);
+    mysqli_stmt_prepare($statement, $sql);
 
-    echo "<p>", $_GET['element'], "</p>";
+    $entry = htmlspecialchars($_GET["element"]);
 
-    mysqli_stmt_bind_param($statement, 's', htmlspecialchars($_GET["element"]));
+    mysqli_stmt_bind_param($statement, 's', $entry);
 
-    if($result = mysqli_query($conn, $sql))
+    if(mysqli_stmt_execute($statement))
     {
-        $row = mysqli_fetch_assoc($result);
-        echo "\t\t\t\t", '<ul>', "\n";
-        echo "\t\t\t\t\t", '<li>', $row["currency"], "</li>", "\n";
-        echo "\t\t\t\t\t", '<li>', $row["denomination"], "</li>", "\n";
-        echo "\t\t\t\t\t", '<li>', $row["mint_year"], "</li>", "\n";
-        echo "\t\t\t\t", '</ul>', "\n";
-
-        mysqli_free_result($result);
+        $result = mysqli_stmt_get_result($statement);
+        if($row = mysqli_fetch_assoc($result))
+        {
+            echo "\t\t\t\t", '<ul>', "\n";
+            echo "\t\t\t\t\t", '<li>', $row["currency"], "</li>", "\n";
+            echo "\t\t\t\t\t", '<li>', $row["denomination"], "</li>", "\n";
+            echo "\t\t\t\t\t", '<li>', $row["mint_year"], "</li>", "\n";
+            echo "\t\t\t\t", '</ul>', "\n";
+        }
     }
     else
     {
         echo "\t\t\t", "<p> sql query faliure</p>";
     }
-    mysqli_close($conn);
+    mysqli_stmt_close($conn);
+
+    echo "<p>end results</p>";
 
     ?>
 
