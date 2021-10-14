@@ -13,7 +13,6 @@ $_SESSION["test"] = rand(0, 100);
 <body>
 
     <?php require_once "website_header.php"; 
-    echo "<p>", $_SESSION["test"], "</p>";
     
     ?>
 

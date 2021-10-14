@@ -13,42 +13,21 @@
     <?php require_once "website_header.php";
     
     $_GET;
-    require_once "dbconn.php";
+    //require_once "dbconn.php";
 
-    // require_once "db_functions";
-    // $conn = get_conn();
+    require_once "db_functions.php";
+    $conn = get_conn();
 
     echo "<h1>product page</h1>";
 
-    echo "<p>", $_SESSION["test"], "</p>";
-
-    $sql = "SELECT currency, denomination, mint_year 
-    FROM Products WHERE product_id=?;";
-
-    $statement = mysqli_stmt_init($conn);
-    mysqli_stmt_prepare($statement, $sql);
-
     $entry = htmlspecialchars($_GET["element"]);
-
-    mysqli_stmt_bind_param($statement, 's', $entry);
-
-    if(mysqli_stmt_execute($statement))
+    echo "\t\t\t\t", '<ul>', "\n";
+    $item = display_single_product($conn, $entry);
+    foreach($item as $value)
     {
-        $result = mysqli_stmt_get_result($statement);
-        if($row = mysqli_fetch_assoc($result))
-        {
-            echo "\t\t\t\t", '<ul>', "\n";
-            echo "\t\t\t\t\t", '<li>', $row["currency"], "</li>", "\n";
-            echo "\t\t\t\t\t", '<li>', $row["denomination"], "</li>", "\n";
-            echo "\t\t\t\t\t", '<li>', $row["mint_year"], "</li>", "\n";
-            echo "\t\t\t\t", '</ul>', "\n";
-        }
+        echo "\t\t\t\t\t", '<li>', $value, "</li>", "\n";
     }
-    else
-    {
-        echo "\t\t\t", "<p> sql query faliure</p>";
-    }
-    mysqli_close($conn);
+    echo "\t\t\t\t", '</ul>', "\n";
 
     echo '<a href=Add_to_cart.php?item=', $entry,'>', 'add to cart </a>';
 

@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <?php require_once "website_header.php";
-    
+    <?php 
+    require_once "website_header.php";
+    require_once "db_functions.php";
 
     ?>
 
@@ -47,7 +48,6 @@
         <main class="content">
             <!-- Search Results -->
             <?php 
-            require_once "dbconn.php";
 
             $year = $_POST['year'];
             $currency = $_POST['currency_type'];
@@ -75,7 +75,7 @@
                 $sql = "SELECT * FROM Products";
             }
 
-            echo "<p>", $_SESSION["test"], "</p>";
+            $conn = get_conn();
 
             if($result = mysqli_query($conn, $sql))
             {

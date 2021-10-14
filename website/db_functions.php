@@ -12,12 +12,33 @@ function get_conn(){
         echo "Error: Unable to connect to database.<br>";
         echo "Debugging errno: " . mysqli_connect_errno() . "<br>";
         echo "Debugging error: " . mysqli_connect_error() . "<br>";
-        exit;
     }
     return $conn;
 }
 
-function display_products(){
+function display_single_product($conn, $entry){
+    $sql = "SELECT currency, denomination, mint_year 
+    FROM Products WHERE product_id=?;";
+
+    $ret = null;
+
+    $statement = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($statement, $sql);
+
+    mysqli_stmt_bind_param($statement, 's', $entry);
+
+    if(mysqli_stmt_execute($statement))
+    {
+        $result = mysqli_stmt_get_result($statement);
+        if($row = mysqli_fetch_assoc($result))
+        {
+            $ret = $row;
+        }
+        mysqli_free_result($result);
+    }
+    
+    mysqli_close($conn);
+    return $ret;
     
 }
 
