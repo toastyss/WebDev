@@ -1,5 +1,7 @@
 <?php
 
+$header = ["currency", "denomination", "mint_year", "price", "quality", "quantity"];
+
 function get_conn()
 {
     define("DB_HOST", "localhost");
@@ -19,14 +21,14 @@ function get_conn()
 
 function display_single_product($conn, $entry)
 {
+    global $header;
+
     $sql = "SELECT currency, denomination, 
     mint_year, price, quality, quantity
     FROM Products
     CROSS JOIN Products_status
     ON Products.product_id = Products_status.product_id
     WHERE shipping_status = 'IN WAREHOUSE' AND Products.product_id=?;";
-
-    echo "<p> query:", $sql, "</p>";
 
     $ret = null;
 
@@ -52,6 +54,8 @@ function display_single_product($conn, $entry)
 
 function display_search_results($conn, $filter_currency)
 {
+    global $header;
+
     $sql = "SELECT Products.product_id, currency, denomination, mint_year, price, quality, quantity
             FROM Products
             CROSS JOIN Products_status
@@ -78,6 +82,13 @@ function display_search_results($conn, $filter_currency)
         {
             echo '<h1> Results </h1>', "\n";
             echo "\t\t\t", '<table id="results">', "\n";
+            echo "\t\t\t\t", '<tr>', "\n";
+            echo "\t\t\t\t\t", '<th>Product_id</th>', "\n";
+            foreach($header as $label)
+            {
+                echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
+            }
+            echo "\t\t\t\t", '</tr>', "\n";
             while($row = mysqli_fetch_assoc($result))
             {
                 echo "\t\t\t\t", '<tr>', "\n";

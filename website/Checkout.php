@@ -25,6 +25,10 @@
     echo '<h1> Shopping cart </h1>', "\n";
 
 	echo "\t\t\t", '<table id="shopping_cart_table">', "\n";
+    foreach($header as $label)
+    {
+        echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
+    }
     foreach($_SESSION["cart"] as $product)
     {
         $conn = get_conn();
