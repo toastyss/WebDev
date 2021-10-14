@@ -1,6 +1,7 @@
 <?php
 
-function get_conn(){
+function get_conn()
+{
     define("DB_HOST", "localhost");
     define("DB_NAME", "MoneyToU");
     define("DB_USER", "dbadmin");
@@ -16,7 +17,8 @@ function get_conn(){
     return $conn;
 }
 
-function display_single_product($conn, $entry){
+function display_single_product($conn, $entry)
+{
     $sql = "SELECT currency, denomination, mint_year 
     FROM Products WHERE product_id=?;";
 
@@ -35,6 +37,63 @@ function display_single_product($conn, $entry){
             $ret = $row;
         }
         mysqli_free_result($result);
+    }
+    
+    mysqli_close($conn);
+    return $ret;
+    
+}
+
+function display_search_results($conn, $filter_currency)
+{
+    $sql = "SELECT * 
+            FROM Products
+            CROSS JOIN Products_status
+            ON Products.product_id = Products_status.product_id";
+
+    if(count($filter_currency) > 0)
+    {
+        $sql = $sql.' WHERE currency = "'.$filter_currency[0].'"';
+    }
+    if(count($filter_currency) > 1)
+    {
+        for($i = 1; $i < count($filter_currency); $i++)
+        {
+            $sql = $sql.' OR currency = "'.$filter_currency[$i].'"';
+        }
+    }
+
+    $ret = null;
+
+    if($result = mysqli_query($conn, $sql))
+    {
+        if(mysqli_num_rows($result) > 0)
+        {
+            echo '<h1> Results </h1>', "\n";
+            echo "\t\t\t", '<table id="results">', "\n";
+            while($row = mysqli_fetch_assoc($result))
+            {
+                echo "\t\t\t\t", '<tr>', "\n";
+                foreach($row as $attribute => $value)
+                {
+                    if($attribute == "product_id")
+                    {
+                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$value, '> Product</a>' ,"</td>", "\n";
+                    }
+                    echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+                }
+            }
+            echo "\t\t\t", "</table>", "\n";
+            mysqli_free_result($result);
+        }
+        else 
+        {
+            echo "\t\t\t", "<p> no results found </p>";
+        }
+    }
+    else
+    {
+        echo "\t\t\t", "<p> sql query faliure</p>";
     }
     
     mysqli_close($conn);

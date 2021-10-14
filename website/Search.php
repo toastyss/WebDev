@@ -52,60 +52,92 @@
             $year = $_POST['year'];
             $currency = $_POST['currency_type'];
 
-            $sql = "SELECT * FROM Products";
+            $sql = "SELECT * 
+            FROM Products
+            CROSS JOIN Products_status
+            ON Products.product_id = Products_status.product_id;";
 
-            if(isset($_POST['year'])){
-                $sql = "SELECT * FROM Products WHERE mint_year = $year";
-            }
+            // if(isset($_POST['year'])){
+            //     $sql = "SELECT * FROM Products WHERE mint_year = $year";
+            // }
             
-            switch ($currency)
-            {
-                case "AUD":
-                    $sql = "SELECT * FROM Products WHERE currency = 'AUD'";
-                    break;
-                case "EUR":
-                    $sql = "SELECT * FROM Products WHERE currency = 'EUR'";
-                    break;
-                case "USD":
-                    $sql = "SELECT * FROM Products WHERE currency = 'USD'";
-                    break;
-            }
+            // switch ($currency)
+            // {
+            //     case "AUD":
+            //         $sql = "SELECT * FROM Products WHERE currency = 'AUD'";
+            //         break;
+            //     case "EUR":
+            //         $sql = "SELECT * FROM Products WHERE currency = 'EUR'";
+            //         break;
+            //     case "USD":
+            //         $sql = "SELECT * FROM Products WHERE currency = 'USD'";
+            //         break;
+            // }
 
-            if($year == NULL && $currency == NULL){
-                $sql = "SELECT * FROM Products";
-            }
+            // if($year == NULL && $currency == NULL){
+            //     $sql = "SELECT * FROM Products";
+            // }
+
+            // $conn = get_conn();
+
+            // if($result = mysqli_query($conn, $sql))
+            // {
+            //     if(mysqli_num_rows($result) > 0)
+            //     {
+            //         echo '<h1> Results </h1>', "\n";
+	        //         echo "\t\t\t", '<table id="results">', "\n";
+	    	//         while($row = mysqli_fetch_assoc($result))
+            //         {
+            //             echo "\t\t\t\t", '<tr>', "\n";
+            //             echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '> Product</a>' ,"</td>", "\n";
+            //             echo "\t\t\t\t\t", '<td>', $row["currency"], "</td>", "\n";
+            //             echo "\t\t\t\t\t", '<td>', $row["denomination"], "</td>", "\n";
+            //             echo "\t\t\t\t\t", '<td>', $row["mint_year"], "</td>", "\n";
+            //             echo "\t\t\t\t", '</tr>', "\n";
+            //         }
+            //         echo "\t\t\t", "</table>", "\n";
+            //         mysqli_free_result($result);
+            //     }
+            //     else 
+            //     {
+            //         echo "\t\t\t", "<p> no results found </p>";
+            //     }
+            // }
+            // else
+            // {
+            //     echo "\t\t\t", "<p> sql query faliure</p>";
+            // }
+            
+            // mysqli_close($conn);
+
+            // echo '<h1> Results </h1>', "\n";
+            // echo "\t\t\t", '<table id="search_results">', "\n";
 
             $conn = get_conn();
 
-            if($result = mysqli_query($conn, $sql))
-            {
-                if(mysqli_num_rows($result) > 0)
-                {
-                    echo '<h1> Results </h1>', "\n";
-	                echo "\t\t\t", '<table id="results">', "\n";
-	    	        while($row = mysqli_fetch_assoc($result))
-                    {
-                        echo "\t\t\t\t", '<tr>', "\n";
-                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '> Product</a>' ,"</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["currency"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["denomination"], "</td>", "\n";
-                        echo "\t\t\t\t\t", '<td>', $row["mint_year"], "</td>", "\n";
-                        echo "\t\t\t\t", '</tr>', "\n";
-                    }
-                    echo "\t\t\t", "</table>", "\n";
-                    mysqli_free_result($result);
-                }
-                else 
-                {
-                    echo "\t\t\t", "<p> no results found </p>";
-                }
-            }
-            else
-            {
-                echo "\t\t\t", "<p> sql query faliure</p>";
-            }
-            
-            mysqli_close($conn);
+            $filter_currency = ["AUD", "USD"];
+
+            // print_r($filter_currency);
+
+            // echo "<p> Filter value ", $filter_currency[0], "</p>";
+
+            display_search_results($conn, $filter_currency);
+
+            // foreach($_SESSION["cart"] as $product)
+            // {
+            //     $conn = get_conn();
+            //     $entry = htmlspecialchars($product);
+
+            //     echo "\t\t\t\t", '<tr>', "\n";
+            //     $item = display_single_product($conn, $entry);
+
+            //     foreach($item as $value)
+            //     {
+            //         echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+            //     }
+            //     echo "\t\t\t\t", '</tr>', "\n";
+            // }
+            // echo "\t\t\t", "</table>", "\n";
 
             ?>
             
