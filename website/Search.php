@@ -19,7 +19,7 @@
     <div class="search_page">
         <aside class="sidebar">
             <!-- Sidebar -->
-            <form id="product_filter" action="" method="post">
+            <form id="product_filter" action="" method="get">
                 <input id="year" type="number" placeholder="Mint year" name="year" min="1900" max="2021"><br>
 
                 <div id="checkboxes">
@@ -49,7 +49,7 @@
             <!-- Search Results -->
             <?php 
 
-            $year = $_POST['year'];
+            $year = $_REQUEST['year'];
 
             $sql = "SELECT * 
             FROM Products
@@ -58,17 +58,17 @@
 
             $filter_currency = [];
 
-            if(isset($_POST["currency_USD"]))
+            if(isset($_REQUEST["currency_USD"]))
             {
-                $filter_currency[count($filter_currency)] = $_POST["currency_USD"];
+                $filter_currency[count($filter_currency)] = $_REQUEST["currency_USD"];
             }
-            if(isset($_POST["currency_EUR"]))
+            if(isset($_REQUEST["currency_EUR"]))
             {
-                $filter_currency[count($filter_currency)] = $_POST["currency_EUR"];
+                $filter_currency[count($filter_currency)] = $_REQUEST["currency_EUR"];
             }
-            if(isset($_POST["currency_AUD"]))
+            if(isset($_REQUEST["currency_AUD"]))
             {
-                $filter_currency[count($filter_currency)] = $_POST["currency_AUD"];
+                $filter_currency[count($filter_currency)] = $_REQUEST["currency_AUD"];
             }
 
             $conn = get_conn();

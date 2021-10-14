@@ -19,8 +19,14 @@ function get_conn()
 
 function display_single_product($conn, $entry)
 {
-    $sql = "SELECT currency, denomination, mint_year 
-    FROM Products WHERE product_id=?;";
+    $sql = "SELECT currency, denomination, 
+    mint_year, price, quality, quantity
+    FROM Products
+    CROSS JOIN Products_status
+    ON Products.product_id = Products_status.product_id
+    WHERE shipping_status = 'IN WAREHOUSE' AND Products.product_id=?;";
+
+    echo "<p> query:", $sql, "</p>";
 
     $ret = null;
 
@@ -46,14 +52,15 @@ function display_single_product($conn, $entry)
 
 function display_search_results($conn, $filter_currency)
 {
-    $sql = "SELECT * 
+    $sql = "SELECT Products.product_id, currency, denomination, mint_year, price, quality, quantity
             FROM Products
             CROSS JOIN Products_status
-            ON Products.product_id = Products_status.product_id";
+            ON Products.product_id = Products_status.product_id
+            WHERE shipping_status = 'IN WAREHOUSE'";
 
     if(count($filter_currency) > 0)
     {
-        $sql = $sql.' WHERE currency = "'.$filter_currency[0].'"';
+        $sql = $sql.' AND currency = "'.$filter_currency[0].'"';
     }
     if(count($filter_currency) > 1)
     {
@@ -78,9 +85,12 @@ function display_search_results($conn, $filter_currency)
                 {
                     if($attribute == "product_id")
                     {
-                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$value, '> Product</a>' ,"</td>", "\n";
+                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$value, '>', $value, '</a>' ,"</td>", "\n";
                     }
-                    echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+                    else
+                    {
+                        echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+                    }
                 }
             }
             echo "\t\t\t", "</table>", "\n";
