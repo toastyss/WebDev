@@ -35,6 +35,9 @@
         <?php
             echo '<input id="product_id" class="hidden" type="text" name="item" 
             value="', $entry, '">'; 
+        
+            echo '<input id="quantity_selector" type="number" name="quantity"',
+            'max="', $item["quantity"],'">';
         ?>
         <input id="submit_btn" type="submit" value="add to cart">
     </form>

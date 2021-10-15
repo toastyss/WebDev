@@ -62,6 +62,7 @@ function display_search_results($conn, $filter_currency)
             ON Products.product_id = Products_status.product_id
             WHERE shipping_status = 'IN WAREHOUSE'";
 
+    //concaternate the filters onto the sql query
     if(count($filter_currency) > 0)
     {
         $sql = $sql.' AND currency = "'.$filter_currency[0].'"';
