@@ -14,37 +14,42 @@
     require_once "website_header.php";
     require_once "db_functions.php";
 
-
-
-    echo "<p>";
-    if($_SESSION["cart_length"] == 0)
-    {
-        echo "no";
-    }
-    echo $_SESSION["cart_length"], " items in cart </p>";
     echo '<h1> Shopping cart </h1>', "\n";
 
-	echo "\t\t\t", '<table id="shopping_cart_table">', "\n";
-    foreach($header as $label)
-    {
-        echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
-    }
-    foreach($_SESSION["cart"] as $product)
-    {
-        $conn = get_conn();
-        $entry = htmlspecialchars($product);
+    $cart_text = "";
+    $cart_length = strval($_SESSION["cart_length"]);
 
-        echo "\t\t\t\t", '<tr>', "\n";
-        $item = display_single_product($conn, $entry);
-
-        foreach($item as $value)
+    if($_SESSION["cart_length"] >= 1)
+    {
+        $cart_text = "$cart_length items in cart";
+        
+        echo "\t\t\t", '<table id="shopping_cart_table">', "\n";
+        foreach($header as $label)
         {
-            echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+            echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
         }
-        echo "\t\t\t\t", '</tr>', "\n";
-    }
-    echo "\t\t\t", "</table>", "\n";
+        foreach($_SESSION["cart"] as $product)
+        {
+            $conn = get_conn();
+            $entry = htmlspecialchars($product);
 
+            echo "\t\t\t\t", '<tr>', "\n";
+            $item = display_single_product($conn, $entry);
+
+            foreach($item as $value)
+            {
+                echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+            }
+            echo "\t\t\t\t", '</tr>', "\n";
+        }
+        echo "\t\t\t", "</table>", "\n";
+    }
+    else
+    {
+        $cart_text = "No items in cart";
+    }
+
+    echo $cart_text;
     ?>
 
     <form id="add_to_cart" action="Add_to_cart.php" method="get">

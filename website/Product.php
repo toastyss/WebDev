@@ -11,32 +11,38 @@
 
 <body>
     <?php require_once "website_header.php";
-    
     $_GET;
-    //require_once "dbconn.php";
-
     require_once "db_functions.php";
     $conn = get_conn();
-
-    echo "<h1>product page</h1>";
-
     $entry = htmlspecialchars($_GET["element"]);
-    echo "\t\t\t\t", '<ul>', "\n";
     $item = display_single_product($conn, $entry);
-    foreach($item as $value)
-    {
-        echo "\t\t\t\t\t", '<li>', $value, "</li>", "\n";
-    }
-    echo "\t\t\t\t", '</ul>', "\n";
-
     ?>
 
-    <form id="add_to_cart" action="Add_to_cart.php" method="get">
-        <?php
-            echo '<input id="product_id" class="hidden" type="text" name="item" 
-            value="', $entry, '">'; 
-        ?>
-        <input id="submit_btn" type="submit" value="add to cart">
-    </form>
+    <main class="product-page-container">
+        <div class="product-image">
+            <img src="https://via.placeholder.com/500.png" alt="">
+        </div>
 
+        <div class="product-right-column">
+
+            <div class="product-description">
+                <h1><?php echo $item["denomination"] ?></h1>
+                <span><?php echo $item["currency"] ?></span>
+                <p><?php echo "Quality: ", $item["quality"] ?></p>
+                <p><?php echo "In Stock: ", $item["quantity"] ?></p>
+                <p><?php echo "Mint Year: ", $item["mint_year"] ?></p>
+            </div>
+
+            <div class="product-price">
+                <form id="add_to_cart" action="Add_to_cart.php" method="get">
+                    <?php
+                    echo '<input id="product_id" class="hidden" type="text" name="item" 
+                    value="', $entry, '">';
+                    ?>
+                    <span><?php echo "$", $item["price"] ?></span>
+                    <input class="submit_btn" type="submit" value="add to cart">
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
