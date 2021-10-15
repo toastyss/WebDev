@@ -49,12 +49,7 @@
             <!-- Search Results -->
             <?php 
 
-            $year = $_REQUEST['year'];
-
-            $sql = "SELECT * 
-            FROM Products
-            CROSS JOIN Products_status
-            ON Products.product_id = Products_status.product_id;";         
+            $year = $_REQUEST['year'];     
 
             $filter_currency = [];
 

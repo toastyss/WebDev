@@ -29,8 +29,14 @@
     }
     echo "\t\t\t\t", '</ul>', "\n";
 
-    echo '<a href=Add_to_cart.php?item=', $entry,'>', 'add to cart </a>';
-
     ?>
+
+    <form id="add_to_cart" action="Add_to_cart.php" method="get">
+        <?php
+            echo '<input id="product_id" class="hidden" type="text" name="item" 
+            value="', $entry, '">'; 
+        ?>
+        <input id="submit_btn" type="submit" value="add to cart">
+    </form>
 
 </body>

@@ -149,3 +149,6 @@ li h3 {
     flex-grow: 1;
 }
 
+.hidden {
+    display: none;
+}
