@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Money 2 U Search</title>
     <link rel="stylesheet" href="./Styles/styles.css">
+    <script src="./Scripts/Search.js" defer></script>
 </head>
 
 <body>

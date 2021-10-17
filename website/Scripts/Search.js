@@ -1,12 +1,11 @@
 function init()
 {
-    // let input = document.getElementById("quantity_selector");
-    // let price = document.getElementById("price");
-    // input.value = 1;
-    // input.addEventListener('input', function () {
-    //     console.log(input.value);
-    //     document.getElementById("item_cost").innerHTML="$"+ input.value * price.innerHTML;
-    // });
+    let input = document.getElementById("cost");
+    input.value = 1000;
+    document.getElementById("cost_label").innerHTML="Max Price: $"+ input.value;
+    input.addEventListener('change', function () {
+        document.getElementById("cost_label").innerHTML="Max Price: $"+ input.value;
+    });
 }
 
 init();
