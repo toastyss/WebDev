@@ -96,12 +96,14 @@ li h3 {
 }
 
 .sidebar {
-    width: 20%;
+    /* width: 20%; */
     background-color: white;
     border: solid 4px #77F490;
     border-radius: 8px;
     padding: 14px;
-    position: fixed;
+    position: sticky;
+    height: 20%;
+    top: 70px;
 }
 
 #product_filter{

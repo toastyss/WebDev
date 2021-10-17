@@ -60,9 +60,14 @@ function display_search_results($conn, $filter_currency, $year, $cost)
             FROM Products
             CROSS JOIN Products_status
             ON Products.product_id = Products_status.product_id
-            WHERE shipping_status = 'IN WAREHOUSE' AND price < $cost";
+            WHERE shipping_status = 'IN WAREHOUSE'";
 
-    if(!$year == "")
+    if(isset($cost))
+    {
+        $sql = $sql." AND price < $cost";
+    }
+
+    if($year != null)
     {
         $sql = $sql." AND mint_year = $year";
     }

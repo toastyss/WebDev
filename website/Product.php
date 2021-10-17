@@ -38,7 +38,7 @@
                     <?php
                     echo '<input id="product_id" class="hidden" type="text" name="item" 
                     value="', $entry, '">';
-		    echo '<input id="quantity_selector" type="number" name="quantity"',
+		            echo '<input id="quantity_selector" type="number" name="quantity"',
             	    'max="', $item["quantity"],'">';
                     ?>
                     <span><?php echo "$", $item["price"] ?></span>
