@@ -72,13 +72,27 @@
 
 
     ?>
-
     <form id="add_to_cart" action="Add_to_cart.php" method="get">
         <?php
             echo '<input id="product_id" class="hidden" type="text" name="item" 
             value="erase">'; 
         ?>
-        <input id="submit_btn" type="submit" value="empty cart">
+        <input class="submit_btn" type="submit" value="empty cart">
     </form>
 
+    <h1>Payment Form</h1>
+    <form id="purchase_form" action="Process_card_details.php" method="POST">
+        
+        <input type="text" placeholder="First name" name="firstname" required> 
+        <input type="text" placeholder="Last name" name="lastname" required><br>
+
+        <div id="card_details">
+            <input type="text" placeholder="Card number" name="cnumber" minlength="16" maxlength="16" required><br>
+            <input id="expdate" type="date" name="expdate" required>
+            <label id="datelbl" for="expdate">Card Expiry Date</label><br> 
+            <input type="text" placeholder="CVC" name="cvc" minlength="3" maxlength="3" required><br>
+        </div>
+        <br>
+        <input class="submit_btn" type="submit" value="Pay now">
+    </form>
 </body>

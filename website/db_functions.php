@@ -1,6 +1,6 @@
 <?php
 
-$header = ["currency", "denomination", "mint_year", "price", "quality", "quantity"];
+$header = ["Currency", "Name", "Denomination", "Mint Year", "Price", "Quality", "Stock"];
 
 function get_conn()
 {
@@ -23,7 +23,7 @@ function display_single_product($conn, $entry)
 {
     global $header;
 
-    $sql = "SELECT currency, denomination, 
+    $sql = "SELECT currency, product_name, denomination, 
     mint_year, price, quality, quantity
     FROM Products
     CROSS JOIN Products_status
@@ -56,7 +56,7 @@ function display_search_results($conn, $filter_currency, $year, $cost)
 {
     global $header;
 
-    $sql = "SELECT Products.product_id, currency, denomination, mint_year, price, quality, quantity
+    $sql = "SELECT Products.product_id, currency, product_name, denomination, mint_year, price, quality, quantity
             FROM Products
             CROSS JOIN Products_status
             ON Products.product_id = Products_status.product_id
@@ -94,7 +94,6 @@ function display_search_results($conn, $filter_currency, $year, $cost)
             echo '<h1> Results </h1>', "\n";
             echo "\t\t\t", '<table id="results">', "\n";
             echo "\t\t\t\t", '<tr>', "\n";
-            echo "\t\t\t\t\t", '<th>Product_id</th>', "\n";
             foreach($header as $label)
             {
                 echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
@@ -107,7 +106,11 @@ function display_search_results($conn, $filter_currency, $year, $cost)
                 {
                     if($attribute == "product_id")
                     {
-                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$value, '>', $value, '</a>' ,"</td>", "\n";
+                        continue;
+                    }
+                    else if($attribute == "product_name")
+                    {
+                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '>', $value, '</a>' ,"</td>", "\n";
                     }
                     else
                     {
@@ -133,6 +136,58 @@ function display_search_results($conn, $filter_currency, $year, $cost)
     
 }
 
+function process_product($conn, $product_id, $order_quantity)
+{
+    $current_item;
+
+    $sql = "SELECT * FROM Products_status WHERE product_id=?;";
+
+    $statement = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($statement, $sql);
+
+    mysqli_stmt_bind_param($statement, 's', $product_id);
+
+    if(mysqli_stmt_execute($statement))
+    {
+        $result = mysqli_stmt_get_result($statement);
+        if($row = mysqli_fetch_assoc($result))
+        {
+            $current_item = $row;
+        }
+        mysqli_free_result($result);
+    }
+
+    $sql = "UPDATE Products_status 
+            SET quantity ='".$current_item["quantity"] - $order_quantity.
+            "WHERE product_id=?";
+
+    $statement = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($statement, $sql);
+
+    mysqli_stmt_bind_param($statement, 's', $product_id);
+
+    mysqli_stmt_execute($statement);
+
+    $sql = "INSERT INTO Products_status VALUES(";
+
+    foreach($current_item as $attribute => $value)
+    {
+        if($attribute == "shipping_status")
+        {
+            $sql = $sql.'"SHIPPING",';
+        }
+        else
+        {
+            $sql = $sql.'"$value", ';
+        }
+    }
+    $sql = $sql.');';
+
+    $statement = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($statement, $sql);
+
+    mysqli_stmt_execute($statement);    
+}
 
 
 ?>

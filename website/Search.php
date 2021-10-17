@@ -50,9 +50,10 @@
                 </div>
                 <div id="sliders">
                     <input type="range" id="cost" name="cost" min="0" max="1000" step="10" value="<?php echo $slider_value; ?>"><br>
-                    <label id="cost_label" for="cost">Cost: <?php echo $slider_value; ?></label><br>
+                    <label id="cost_label" for="cost">Max Price: <?php echo $slider_value; ?></label><br>
                 </div>
-                <input id="submit_btn" type="submit" value="Filter">
+                <br>
+                <input class="submit_btn" type="submit" value="Filter">
             </form>
         </aside>
 

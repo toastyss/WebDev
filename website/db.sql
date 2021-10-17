@@ -15,12 +15,23 @@ CREATE TABLE Products(
 
 CREATE TABLE Products_status (
     product_id CHAR(10) NOT NULL,
+    product_name VARCHAR(20) NOT NULL,
     price int NOT NULL,
     quality VARCHAR(100) NOT NULL DEFAULT "GOOD",
     shipping_status VARCHAR(100) NOT NULL DEFAULT "IN WAREHOUSE",
     quantity INT NOT NULL,
     PRIMARY KEY(product_id, quality, shipping_status),
     FOREIGN KEY (product_id) REFERENCES Products (product_id)
+);
+
+CREATE TABLE User_data (
+    user_id CHAR(5) NOT NULL,
+    user_first_name VARCHAR(255) NOT NULL,
+    user_last_name VARCHAR(255) NOT NULL,
+    card_num CHAR(16) NOT NULL,
+    card_expiry DateTime NOT NULL,
+    card_cvc CHAR(3) NOT NULL,
+    PRIMARY KEY (user_id)
 );
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
@@ -34,9 +45,9 @@ INSERT INTO Products values("USD0501928", "USD", 50, 1928);
 INSERT INTO Products values("EUR0501958", "EUR", 50, 1958);
 
 
-INSERT INTO Products_status values("AUD0051997", 100, "GOOD", "IN WAREHOUSE", 50);
-INSERT INTO Products_status values("AUD0101997", 33, "EXCELLENT", "IN WAREHOUSE", 20);
-INSERT INTO Products_status values("AUD0201998", 2, "GOOD", "SHIPPING", 5);
-INSERT INTO Products_status values("AUD0501998", 38, "GOOD", "IN WAREHOUSE", 40);
-INSERT INTO Products_status values("USD0501928", 767, "GOOD", "IN WAREHOUSE", 10);
-INSERT INTO Products_status values("EUR0501958", 1, "GOOD", "IN WAREHOUSE", 1);
+INSERT INTO Products_status values("AUD0051997", "Burnt $100 notes", 100, "GOOD", "IN WAREHOUSE", 50);
+INSERT INTO Products_status values("AUD0101997", "Half eaten cash", 33, "EXCELLENT", "IN WAREHOUSE", 20);
+INSERT INTO Products_status values("AUD0201998", "Just normal cash", 2, "GOOD", "SHIPPING", 5);
+INSERT INTO Products_status values("AUD0501998", "Money", 38, "GOOD", "IN WAREHOUSE", 40);
+INSERT INTO Products_status values("USD0501928", "Freedom bucks", 767, "GOOD", "IN WAREHOUSE", 10);
+INSERT INTO Products_status values("EUR0501958", "Pre-Brexit Euros", 1, "GOOD", "IN WAREHOUSE", 1);

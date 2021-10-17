@@ -21,7 +21,7 @@ $_SESSION["test"] = rand(0, 100);
         <h1>MONEY 2 U</h1>
         
         <!-- about paragraph -->
-        <p>The only place where you can buy cash online<br>Since 2006</p>
+        <p>Money 2 U is the premier website for the purchasing of cash online, delivered straight to your door. Since our founding in 2006, we have supplied over 65,000 customers with the cash they need!</p>
     </div>
 
 
@@ -32,113 +32,45 @@ $_SESSION["test"] = rand(0, 100);
     <hr>
 
         <section class="card_grid">
-            <div class="card">
 
-                <img src="https://via.placeholder.com/250.png">
+                <img src="assets/images/Product1.png" class = "img1">
 
-            </div>
-            
-            <div class="card">
+                <img src="assets/images/Product2.png" class = "img2">
 
-                <img src="https://via.placeholder.com/250.png">
+                <img src="assets/images/Product3.png" class = "img3">
 
+                <img src="assets/images/Product4.png" class = "img4">
 
-            </div>
-            
-            <div class="card">
-
-                <img src="https://via.placeholder.com/250.png">
-
-            </div>
-            
-            <div class="card">
-
-                <img src="https://via.placeholder.com/250.png">
-
-            </div>
         </section>
         
         <h2>Top Selling</h2>
         <hr>
+        
         <section class="card_grid">
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
+                <img src="https://via.placeholder.com/250.png">
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
+                <img src="https://via.placeholder.com/250.png">
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
+                <img src="https://via.placeholder.com/250.png">
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
+                <img src="https://via.placeholder.com/250.png">
+
         </section>
 
         <h2>On Sale</h2>
         <hr>
 
         <section class="card_grid">
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
+            <img src="https://via.placeholder.com/250.png">
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
+            <img src="https://via.placeholder.com/250.png">
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_content">
-                    <img src="https://via.placeholder.com/250.png">
-                </div>
+            <img src="https://via.placeholder.com/250.png">
 
-                <div class="card_cover">
-                    <h3 class="card_sub">$10</h3 class="card_sub">
-                </div>
-            </div>
+            <img src="https://via.placeholder.com/250.png">
+
         </section>
 
     </div>
