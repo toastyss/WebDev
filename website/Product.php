@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Money 2 U Product</title>
     <link rel="stylesheet" href="./Styles/styles.css">
+    <script src"./Scripts/Product.js" defer></script>
 </head>
 
 <body>
@@ -35,16 +36,18 @@
 
             <div class="product-price">
                 <form id="add_to_cart" action="Add_to_cart.php" method="get">
+                    <span><?php echo "$", $item["price"], " per item"; ?></span>
                     <?php
                     echo '<input id="product_id" class="hidden" type="text" name="item" 
-                    value="', $entry, '">';
-		    echo '<input id="quantity_selector" type="number" name="quantity"',
-		    'min="1" value="1"',	    
-            	    'max="', $item["quantity"],'">';
+                        value="', $entry, '">';
+                    echo '<input id="quantity_selector" type="number" name="quantity"',
+                        'min="1" value="1"',	    
+                        'max="', $item["quantity"],'">';
                     ?>
-                    <span><?php echo "$", $item["price"] ?></span>
                     <input class="submit_btn" type="submit" value="add to cart">
                 </form>
+                <br>
+                <p id="total_cost">Total cost: <span id="item_cost">42</span></p>
             </div>
         </div>
     </main>
