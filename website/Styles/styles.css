@@ -22,18 +22,6 @@ body {
     width: 15%;
 }
 
-#product_filter {
-    position: absolute;
-    top: 25%;
-    left: 5%;
-    width: auto;
-    height: 50%;
-    background-color: white;
-    border: solid 4px #77F490;
-    border-radius: 8px;
-    padding: 14px;
-}
-
 #search_bar {
     border: solid 3px #77F490;
     border-radius: 8px;
@@ -108,36 +96,43 @@ li h3 {
 }
 
 .sidebar {
-    width: 30%;
+    width: 20%;
+    background-color: white;
+    border: solid 4px #77F490;
+    border-radius: 8px;
+    padding: 14px;
+    position: fixed;
+}
+
+#product_filter{
+    align-items: center;
 }
 
 .content {
     flex-grow: 1;
     overflow: auto;
+    height: 200000px;
 }
 
 .card_grid {
-    width: 100%;
-    height: auto;
-    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
     flex-wrap: wrap;
 }
 
-.card_grid > div {
-    background: rgb(119,244,144);
-}
-
 .card {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    align-items: center;
+    background: #77F490;
+    flex: 1 0 auto;
+    height: auto;
 }
 
-.card_cover {
-    height: 30px;
-    width: 100%;
-}
+.card:after{
+    content:'';
+    float: left;
+    padding-top: 100%;
+  }
 
 .card_sub{
     margin-block: 2px;
@@ -145,10 +140,68 @@ li h3 {
     text-align: center;
 }
 
-.card_content {
-    flex-grow: 1;
-}
-
 .hidden {
     display: none;
 }
+
+.product-page-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+  }
+  
+  .product-image {
+    width: 65%;
+    position: relative;
+  }
+  
+  .product-right-column {
+    width: 35%;
+    margin-top: 60px;
+  }
+  
+  .product-image img {
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+  
+  .product-description {
+    border-bottom: 1px solid #e1e8ee;
+    margin-bottom: 20px;
+  }
+  
+  .product-description span {
+    font-size: 12px;
+    color: #358ed7;
+  }
+  
+  .product-description h1 {
+    font-weight: 400;
+    font-size: 52px;
+    color: #43484d;
+    margin-top: 0;
+  }
+  
+  .product-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #86939e;
+  }
+  
+  .product-price {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-price > form > span {
+    font-size: 26px;
+    font-weight: 300;
+    color: #43474d;
+    margin-right: 20px;
+  }
+  

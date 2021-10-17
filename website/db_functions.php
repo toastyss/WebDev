@@ -52,7 +52,7 @@ function display_single_product($conn, $entry)
     
 }
 
-function display_search_results($conn, $filter_currency)
+function display_search_results($conn, $filter_currency, $year, $cost)
 {
     global $header;
 
@@ -60,7 +60,12 @@ function display_search_results($conn, $filter_currency)
             FROM Products
             CROSS JOIN Products_status
             ON Products.product_id = Products_status.product_id
-            WHERE shipping_status = 'IN WAREHOUSE'";
+            WHERE shipping_status = 'IN WAREHOUSE' AND price < $cost";
+
+    if(!$year == "")
+    {
+        $sql = $sql." AND mint_year = $year";
+    }
 
     //concaternate the filters onto the sql query
     if(count($filter_currency) > 0)
@@ -74,7 +79,7 @@ function display_search_results($conn, $filter_currency)
             $sql = $sql.' OR currency = "'.$filter_currency[$i].'"';
         }
     }
-
+    
     $ret = null;
 
     if($result = mysqli_query($conn, $sql))
