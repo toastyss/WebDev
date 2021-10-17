@@ -32,6 +32,27 @@
         {
             $conn = get_conn();
             $entry = htmlspecialchars($product);
+	//echo "\t\t\t", '<table id="shopping_cart_table">', "\n";
+    //foreach($header as $label)
+    {
+        //echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
+    //}
+
+    // echo "<p> product list", $_SESSION["cart"]["item_name"], "</p>";
+
+    // echo "<p>";
+    // print_r( $_SESSION["cart"]);
+    // echo "</p>";
+
+    //foreach($_SESSION["cart"] as $product)
+    //{
+        // echo "<p> product";
+        // print_r($product);
+        // echo "</p>";
+
+        //$conn = get_conn();
+        //$entry = htmlspecialchars($product["item_name"]);
+
 
             echo "\t\t\t\t", '<tr>', "\n";
             $item = display_single_product($conn, $entry);
