@@ -58,7 +58,7 @@
         $cart_text = "No items in cart";
     }
 
-    echo $cart_text;
+    echo "<p id=cart_length_text> $cart_text </p>";
     ?>
 
     <form id="add_to_cart" action="Add_to_cart.php" method="get">
