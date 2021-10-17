@@ -18,6 +18,7 @@
 
     $cart_text = "";
     $cart_length = strval($_SESSION["cart_length"]);
+    $total_cost = 0;
 
     if($_SESSION["cart_length"] >= 1)
     {
@@ -28,6 +29,7 @@
         {
             echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
         }
+        echo "\t\t\t\t\t", "<th> item cost</th>", "\n";
 
         foreach($_SESSION["cart"] as $product)
         {
@@ -36,9 +38,11 @@
 
             echo "\t\t\t\t", '<tr>', "\n";
             $item = display_single_product($conn, $entry);
+            $item_cost;
 
             foreach($item as $attribute => $value)
             {
+                $item_cost = $item["price"] * $product["order_quantity"];
                 echo "\t\t\t\t\t", '<td>';
                 if($attribute == "quantity")
                 {
@@ -49,6 +53,8 @@
                 }
                 echo "</td>", "\n";
             }
+            echo "<td>$item_cost</td>";
+            $total_cost += $item_cost;
             echo "\t\t\t\t", '</tr>', "\n";
         }
         echo "\t\t\t", "</table>", "\n";
@@ -59,6 +65,12 @@
     }
 
     echo "<p id=cart_length_text> $cart_text </p>";
+    echo '<h1 id="total_cost_text"> Total cost </h2>';
+
+    echo '<p id="total_cost_number">';
+    echo $total_cost, "</p>";
+
+
     ?>
 
     <form id="add_to_cart" action="Add_to_cart.php" method="get">
