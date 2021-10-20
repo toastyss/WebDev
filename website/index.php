@@ -32,15 +32,18 @@ $_SESSION["test"] = rand(0, 100);
     <hr>
 
         <section class="card_grid">
-
-                <img src="assets/images/Product1.png" class = "img1">
-
-                <img src="assets/images/Product2.png" class = "img2">
-
-                <img src="assets/images/Product3.png" class = "img3">
-
-                <img src="assets/images/Product4.png" class = "img4">
-
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct1.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct2.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct3.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct4.png">
+            </a>
         </section>
         
         <h2>Top Selling</h2>

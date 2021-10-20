@@ -152,7 +152,7 @@ li h3 {
     margin: 20px 0px 20px 0px;
 }
 
-.card_grid > img {
+.card_grid > a {
     object-fit: cover;
     flex: 1 0 auto;
     flex-basis: 20%;
@@ -160,7 +160,7 @@ li h3 {
     height: auto;
 }
 
-.card_grid > img:after{
+.card_grid > a:after{
     content:'';
     float: left;
     padding-top: 100%;
@@ -257,3 +257,23 @@ li h3 {
     font-size: 20px;
     margin-top: 15%;
   }
+
+  table{
+    border-collapse: collapse;
+  }
+  td{
+    padding: 12px 15px;
+  }
+  tr {
+    border-bottom: 1px solid #dddddd;
+  }
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    tr:last-of-type {
+      border-bottom: 2px solid #77F490;
+  }
+    th {
+      background-color: #77F490;
+      color: black;
+      padding: 12px 15px;
+    }
+    tr:hover {background-color: #01e0b4;}
