@@ -31,6 +31,10 @@
     {
         $filter_currency[count($filter_currency)] = $_REQUEST["currency_AUD"];
     }
+    if(isset($_REQUEST["currency_EXT"]))
+    {
+        $filter_currency[count($filter_currency)] = $_REQUEST["currency_EXT"];
+    }
 
     $slider_value = $_GET['cost'];
     ?>
@@ -39,7 +43,7 @@
         <aside class="sidebar">
             <!-- Sidebar -->
             <form id="product_filter" action="" method="get" name="filter">
-                <input id="year" type="number" placeholder="Mint year" name="year" min="1900" max="2021" value="<?php echo $year; ?>"><br>
+                <input id="year" type="number" placeholder="Mint year" name="year" min="0" max="2021" value="<?php echo $year; ?>"><br>
 
                 <div id="checkboxes">
                     <input id="usd_c" type="checkbox" name="currency_USD" value="USD">
@@ -48,9 +52,11 @@
                     <label for="eur_c">EUR</label><br>
                     <input id="aud_c" type="checkbox" name="currency_AUD" value="AUD">
                     <label for="aud_c">AUD</label><br>
+                    <input id="ext_c" type="checkbox" name="currency_EXT" value="EXT">
+                    <label for="ext_c">EXT</label><br>
                 </div>
                 <div id="sliders">
-                    <input type="range" id="cost" name="cost" min="0" max="1000" step="10" value="<?php echo $slider_value; ?>"><br>
+                    <input type="range" id="cost" name="cost" min="0" max="500" step="10" value="<?php echo $slider_value; ?>"><br>
                     <label id="cost_label" for="cost">Max Price: <?php echo $slider_value; ?></label><br>
                 </div>
                 <br>

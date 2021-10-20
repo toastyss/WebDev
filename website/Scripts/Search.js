@@ -1,7 +1,6 @@
 function init()
 {
     let input = document.getElementById("cost");
-    input.value = 1000;
     document.getElementById("cost_label").innerHTML="Max Price: $"+ input.value;
     input.addEventListener('change', function () {
         document.getElementById("cost_label").innerHTML="Max Price: $"+ input.value;

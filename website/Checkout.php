@@ -67,7 +67,7 @@
     echo "<p id=cart_length_text> $cart_text </p>";
     echo '<h1 id="total_cost_text"> Total cost </h2>';
 
-    echo '<p id="total_cost_number">';
+    echo '<p id="total_cost_number">$';
     echo $total_cost, "</p>";
 
 

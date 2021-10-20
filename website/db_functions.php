@@ -93,15 +93,19 @@ function display_search_results($conn, $filter_currency, $year, $cost)
         {
             echo '<h1> Results </h1>', "\n";
             echo "\t\t\t", '<table id="results">', "\n";
-            echo "\t\t\t\t", '<tr>', "\n";
+            echo "\t\t\t\t", "<thead>";
+            echo "\t\t\t\t\t", '<tr>', "\n";
             foreach($header as $label)
             {
-                echo "\t\t\t\t\t", '<th>', $label, "</th>", "\n";
+                echo "\t\t\t\t\t\t", '<th>', $label, "</th>", "\n";
             }
-            echo "\t\t\t\t", '</tr>', "\n";
+            echo "\t\t\t\t\t", '</tr>', "\n";
+            echo "</thead>";
+
+            echo "<tbody>";
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "\t\t\t\t", '<tr>', "\n";
+                echo "\t\t\t\t\t", '<tr>', "\n";
                 foreach($row as $attribute => $value)
                 {
                     if($attribute == "product_id")
@@ -110,14 +114,15 @@ function display_search_results($conn, $filter_currency, $year, $cost)
                     }
                     else if($attribute == "product_name")
                     {
-                        echo "\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '>', $value, '</a>' ,"</td>", "\n";
+                        echo "\t\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '>', $value, '</a>' ,"</td>", "\n";
                     }
                     else
                     {
-                        echo "\t\t\t\t\t", '<td>', $value, "</td>", "\n";
+                        echo "\t\t\t\t\t\t", '<td>', $value, "</td>", "\n";
                     }
                 }
             }
+            echo "\t\t\t\t", "<tbody>";
             echo "\t\t\t", "</table>", "\n";
             mysqli_free_result($result);
         }

@@ -8,7 +8,6 @@
     <nav id="Site_Nav" class="Site_Nav">
         <ul>
             <li><a href="Search.php">Search</a></li>
-            <li><a href="">Account</a></li>
             <li><a href="Checkout.php">Checkout</a></li>
         </ul>
         <div style="clear: both"></div>
