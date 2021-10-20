@@ -15,8 +15,9 @@ body {
 }
 
 #about_sec > p {
-  width: 50%;
+  max-width: 500px;
   overflow: auto;
+  margin: auto;
 }
 
 #logo {
@@ -104,9 +105,9 @@ li h3 {
     border: solid 4px #77F490;
     border-radius: 8px;
     padding: 14px;
-    position: absolute;
+    position: sticky;
     height: 30%;
-    top: 30%;
+    top: 70px;
 }
 
 #product_filter{
