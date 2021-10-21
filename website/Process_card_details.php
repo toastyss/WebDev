@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -11,9 +12,25 @@
 <?php 
 require_once "website_header.php";
 require_once "db_functions.php";
+require "Empty_cart.php";
+$_SESSION;
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
+    
+
+    echo "<p>";
+    print_r($_SESSION["cart"]);
+    echo "</p>";
+
+    foreach($_SESSION["cart"] as $product)
+    {
+        echo "<p>";
+        print_r($product);
+        echo "</p>";
+        process_product($conn, $product["item_name"], $product["order_quantity"]);
+    }
+
     $conn = get_conn();
     
     $minID = 10000;
@@ -31,6 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(mysqli_query($conn, $sql))
     {
         echo "<h2 id='confirm_text'>Purchase complete for $userFirstName $userLastName. Enjoy your cash!</h2>";
+        echo emptyCart();
     }
     else
     {

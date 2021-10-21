@@ -2,10 +2,11 @@
 session_start();
 $_GET;
 
+require "Empty_cart.php";
+
 if($_GET["item"] == "erase")
 {
-    $_SESSION["cart_length"] = null;
-    $_SESSION["cart"] = null;
+    emptyCart();
     header("Location: Checkout.php");
     exit();
 }
@@ -22,4 +23,5 @@ $_SESSION["cart_length"] += 1;
 
 header("Location: Checkout.php");
 exit();
+
 ?>

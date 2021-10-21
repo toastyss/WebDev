@@ -50,30 +50,36 @@ $_SESSION["test"] = rand(0, 100);
         <hr>
         
         <section class="card_grid">
-
-                <img src="https://via.placeholder.com/250.png">
-
-                <img src="https://via.placeholder.com/250.png">
-
-                <img src="https://via.placeholder.com/250.png">
-
-                <img src="https://via.placeholder.com/250.png">
-
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/117-138AD_Denarius.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct2.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct3.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct4.png">
+            </a>
         </section>
 
         <h2>On Sale</h2>
         <hr>
 
         <section class="card_grid">
-
-            <img src="https://via.placeholder.com/250.png">
-
-            <img src="https://via.placeholder.com/250.png">
-
-            <img src="https://via.placeholder.com/250.png">
-
-            <img src="https://via.placeholder.com/250.png">
-
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct1.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct2.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct3.png">
+            </a>
+            <a href="Product.php?element=USD0101997">
+                <img src="assets/images/Products/FEAT/FeatProduct4.png">
+            </a>
         </section>
 
     </div>

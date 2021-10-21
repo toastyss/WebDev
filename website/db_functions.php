@@ -1,6 +1,6 @@
 <?php
 
-$header = ["Currency", "Name", "Denomination", "Mint Year", "Price", "Quality", "Stock"];
+$header = ["Preview", "Currency", "Name", "Denomination", "Mint Year", "Price", "Quality", "Stock"];
 
 function get_conn()
 {
@@ -23,7 +23,7 @@ function display_single_product($conn, $entry)
 {
     global $header;
 
-    $sql = "SELECT currency, product_name, denomination, 
+    $sql = "SELECT Products.product_id, product_image, currency, product_name, denomination, 
     mint_year, price, quality, quantity
     FROM Products
     CROSS JOIN Products_status
@@ -56,7 +56,7 @@ function display_search_results($conn, $filter_currency, $year, $cost)
 {
     global $header;
 
-    $sql = "SELECT Products.product_id, currency, product_name, denomination, mint_year, price, quality, quantity
+    $sql = "SELECT Products.product_id, product_image, currency, product_name, denomination, mint_year, price, quality, quantity
             FROM Products
             CROSS JOIN Products_status
             ON Products.product_id = Products_status.product_id
@@ -116,6 +116,9 @@ function display_search_results($conn, $filter_currency, $year, $cost)
                     {
                         echo "\t\t\t\t\t\t", '<td>', '<a href=Product.php?element=',$row["product_id"], '>', $value, '</a>' ,"</td>", "\n";
                     }
+                    else if($attribute == "product_image"){
+                        echo "\t\t\t\t\t\t", '<td><a href=Product.php?element=',$row["product_id"], '><img id="search_preview" src="', $value,  '"></a></td>', "\n";
+                    }
                     else
                     {
                         echo "\t\t\t\t\t\t", '<td>', $value, "</td>", "\n";
@@ -150,6 +153,8 @@ function process_product($conn, $product_id, $order_quantity)
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);
 
+    echo "";
+
     mysqli_stmt_bind_param($statement, 's', $product_id);
 
     if(mysqli_stmt_execute($statement))
@@ -162,6 +167,9 @@ function process_product($conn, $product_id, $order_quantity)
         mysqli_free_result($result);
     }
 
+
+    echo "<p>selected product</p>";
+
     $sql = "UPDATE Products_status 
             SET quantity ='".$current_item["quantity"] - $order_quantity.
             "WHERE product_id=?";
@@ -172,6 +180,8 @@ function process_product($conn, $product_id, $order_quantity)
     mysqli_stmt_bind_param($statement, 's', $product_id);
 
     mysqli_stmt_execute($statement);
+
+    echo "<p>updated product</p>";
 
     $sql = "INSERT INTO Products_status VALUES(";
 
@@ -191,7 +201,10 @@ function process_product($conn, $product_id, $order_quantity)
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);
 
-    mysqli_stmt_execute($statement);    
+    mysqli_stmt_execute($statement);
+    echo "<p>created new product</p>";
+    
+    return;
 }
 
 

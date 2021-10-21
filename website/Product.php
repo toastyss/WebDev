@@ -22,7 +22,7 @@
 
     <main class="product-page-container">
         <div class="product-image">
-            <img src="https://via.placeholder.com/500.png" alt="">
+            <img src="<?php echo $item["product_image"] ?>" alt="">
         </div>
 
         <div class="product-right-column">

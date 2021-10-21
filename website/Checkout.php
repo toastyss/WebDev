@@ -40,15 +40,18 @@
             $item = display_single_product($conn, $entry);
             $item_cost;
 
-            foreach($item as $attribute => $value)
-            {
+            foreach ($item as $attribute => $value) {
                 $item_cost = $item["price"] * $product["order_quantity"];
-                echo "\t\t\t\t\t", '<td>';
-                if($attribute == "quantity")
-                {
-                    echo $product["order_quantity"];
+                if ($attribute == "product_id") {
+                    continue;
                 }
-                else{
+                echo "\t\t\t\t\t", '<td>';
+
+                if ($attribute == "quantity") {
+                    echo $product["order_quantity"];
+                } else if ($attribute == "product_image") {
+                    echo "\t\t\t\t\t\t", '<a href=Product.php?element=', $item["product_id"], '><img id="search_preview" src="', $value,  '"></a>', "\n";
+                } else {
                     echo $value;
                 }
                 echo "</td>", "\n";
