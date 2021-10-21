@@ -61,13 +61,15 @@ function display_search_results($conn, $filter_currency, $year, $cost)
             CROSS JOIN Products_status
             ON Products.product_id = Products_status.product_id
             WHERE shipping_status = 'IN WAREHOUSE'";
-
-    if(isset($cost))
+    
+    $cost = filter_var($cost, FILTER_SANITIZE_NUMBER_INT);
+    if($cost)
     {
         $sql = $sql." AND price < $cost";
     }
 
-    if($year != null)
+    $year = filter_var($year, FILTER_SANITIZE_NUMBER_INT);
+    if($year)
     {
         $sql = $sql." AND mint_year = $year";
     }
@@ -75,12 +77,14 @@ function display_search_results($conn, $filter_currency, $year, $cost)
     //concaternate the filters onto the sql query
     if(count($filter_currency) > 0)
     {
+        $filter_currency[0] = filter_var($filter_currency[0], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
         $sql = $sql.' AND currency = "'.$filter_currency[0].'"';
     }
     if(count($filter_currency) > 1)
     {
         for($i = 1; $i < count($filter_currency); $i++)
         {
+            $filter_currency[i] = filter_var($filter_currency[i], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
             $sql = $sql.' OR currency = "'.$filter_currency[$i].'"';
         }
     }
@@ -150,11 +154,13 @@ function process_product($conn, $product_id, $order_quantity)
 
     $sql = "SELECT * FROM Products_status WHERE product_id=?;";
 
+    echo "<p>test 1</p>";
+
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);
 
-    echo "";
-
+    echo "<p>test 2</p>";
+    
     mysqli_stmt_bind_param($statement, 's', $product_id);
 
     if(mysqli_stmt_execute($statement))
