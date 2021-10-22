@@ -85,7 +85,8 @@ $_SESSION["test"] = rand(0, 100);
     </div>
 
     <footer id="footer">
-        <p>Careers (they dont exist)</p>
+        <a href="careers.php">Careers</a>
+        <a href="contact.php">Contact</a>
     </footer>
 
 </body>
