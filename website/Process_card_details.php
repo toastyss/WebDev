@@ -17,17 +17,17 @@ $_SESSION;
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    
+    // echo "<p>";
+    // print_r($_SESSION["cart"]);
+    // echo "</p>";
 
-    echo "<p>";
-    print_r($_SESSION["cart"]);
-    echo "</p>";
+    $conn = get_conn();
 
     foreach($_SESSION["cart"] as $product)
     {
-        echo "<p>";
-        print_r($product);
-        echo "</p>";
+        // echo "<p>";
+        // print_r($product);
+        // echo "</p>";
         process_product($conn, $product["item_name"], $product["order_quantity"]);
     }
 
@@ -37,6 +37,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $maxID = 99999;
 
     $userID = random_int($minID, $maxID);
+    $check = mysqli_query($conn, "SELECT user_id FROM User_data WHERE user_id = '$userID'");
+
+    while(!$check->mysqli_num_rows == 0)
+    {
+        $userID = random_int($minID, $maxID);
+        $check = mysqli_query($conn, "SELECT user_id FROM User_data WHERE user_id = '$userID'");
+    }
+
     $userFirstName = htmlspecialchars($_REQUEST['firstname']);
     $userLastName = htmlspecialchars($_REQUEST['lastname']);
     $cardNum = htmlspecialchars($_REQUEST['cnumber']);
@@ -58,4 +66,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     mysqli_close($conn);
 }
+
+    require_once "footer.php";
 ?>
