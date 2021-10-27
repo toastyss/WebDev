@@ -24,4 +24,5 @@ $_SESSION["cart_length"] += 1;
 header("Location: Checkout.php");
 exit();
 
+require_once "footer.php";
 ?>

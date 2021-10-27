@@ -98,4 +98,7 @@
         <br>
         <input class="submit_btn" type="submit" value="Pay now">
     </form>
+    <?php
+    require_once "footer.php";
+    ?>
 </body>

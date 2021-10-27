@@ -13,4 +13,7 @@
     require_once "website_header.php";
     ?>
     <h2 id='confirm_text'>Thank you, we will get back to you shortly</h2>
+    <?php
+    require_once "footer.php";
+    ?>
 </body>

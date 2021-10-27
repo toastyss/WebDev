@@ -154,12 +154,8 @@ function process_product($conn, $product_id, $order_quantity)
 
     $sql = "SELECT * FROM Products_status WHERE product_id=?;";
 
-    echo "<p>test 1</p>";
-
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);
-
-    echo "<p>test 2</p>";
     
     mysqli_stmt_bind_param($statement, 's', $product_id);
 
@@ -173,45 +169,32 @@ function process_product($conn, $product_id, $order_quantity)
         mysqli_free_result($result);
     }
 
-
-    echo "<p>selected product</p>";
-
     $sql = "UPDATE Products_status 
-            SET quantity ='".$current_item["quantity"] - $order_quantity.
-            "WHERE product_id=?";
+            SET quantity =?
+            WHERE product_id=?";
 
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);
 
-    mysqli_stmt_bind_param($statement, 's', $product_id);
+    $new_quantity = $current_item["quantity"] - $order_quantity;
+
+    mysqli_stmt_bind_param($statement, 'is', $new_quantity, $product_id);
 
     mysqli_stmt_execute($statement);
 
-    echo "<p>updated product</p>";
-
-    $sql = "INSERT INTO Products_status VALUES(";
-
-    foreach($current_item as $attribute => $value)
-    {
-        if($attribute == "shipping_status")
-        {
-            $sql = $sql.'"SHIPPING",';
-        }
-        else
-        {
-            $sql = $sql.'"$value", ';
-        }
-    }
-    $sql = $sql.');';
+    $sql = 'INSERT INTO Products_status VALUES(?,?,?,?,"SHIPPING",?);';
 
     $statement = mysqli_stmt_init($conn);
-    mysqli_stmt_prepare($statement, $sql);
+    mysqli_stmt_prepare($statement, $sql);    
+    
+    mysqli_stmt_bind_param($statement, 'ssisi',
+                           $current_item["product_id"],
+                           $current_item["product_name"],
+                           $current_item["price"],
+                           $current_item["quality"],
+                           $order_quantity);
 
     mysqli_stmt_execute($statement);
-    echo "<p>created new product</p>";
     
     return;
 }
-
-
-?>

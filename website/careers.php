@@ -23,4 +23,7 @@
         <input type="file" name="upload" required><br><br>
         <input class="submit_btn" type="submit" value="Contact Us">
     </form>
+    <?php
+    require_once "footer.php";
+    ?>
 </body>

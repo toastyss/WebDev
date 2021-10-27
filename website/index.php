@@ -26,22 +26,20 @@ $_SESSION["test"] = rand(0, 100);
 
 
     <div id="home_body">
-
     <h2>Featured Products</h2>
-
     <hr>
 
-        <section class="card_grid">
-            <a href="Product.php?element=USD0101997">
+    <section class="card_grid">
+            <a href="Product.php?element=USD1001997">
                 <img src="assets/images/Products/FEAT/FeatProduct1.png">
             </a>
-            <a href="Product.php?element=USD0101997">
+            <a href="Product.php?element=AUD0101954">
                 <img src="assets/images/Products/FEAT/FeatProduct2.png">
             </a>
             <a href="Product.php?element=USD0101997">
                 <img src="assets/images/Products/FEAT/FeatProduct3.png">
             </a>
-            <a href="Product.php?element=USD0101997">
+            <a href="Product.php?element=AUD0101993">
                 <img src="assets/images/Products/FEAT/FeatProduct4.png">
             </a>
         </section>
@@ -50,44 +48,43 @@ $_SESSION["test"] = rand(0, 100);
         <hr>
         
         <section class="card_grid">
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/117-138AD_Denarius.png">
+            <a href="Product.php?element=EXT001DRAC">
+                <img src="./assets/images/Products/EXT/335-330BC_Drachma.png">
             </a>
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/FeatProduct2.png">
+            <a href="Product.php?element=EUR2002018">
+                <img src="./assets/images/Products/EUR/200EUR.png">
             </a>
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/FeatProduct3.png">
+            <a href="Product.php?element=AUD1002020">
+                <img src="./assets/images/Products/AUD/100AUD.png">
             </a>
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/FeatProduct4.png">
+            <a href="Product.php?element=EUR0102013">
+                <img src="./assets/images/Products/EUR/10EUR.png">
             </a>
         </section>
 
-        <h2>On Sale</h2>
+        <h2>Editor's Pick</h2>
         <hr>
 
         <section class="card_grid">
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/FeatProduct1.png">
+            <a href="Product.php?element=EXT4501986">
+                <img src="./assets/images/Products/FEAT/FeatProduct5.png">
+            </a>
+            <a href="Product.php?element=EXT001ANTO">
+                <img src="./assets/images/Products/EXT/198-127AD_Antoninianus.png">
             </a>
             <a href="Product.php?element=USD0101997">
                 <img src="assets/images/Products/FEAT/FeatProduct2.png">
             </a>
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/FeatProduct3.png">
-            </a>
-            <a href="Product.php?element=USD0101997">
-                <img src="assets/images/Products/FEAT/FeatProduct4.png">
+            <a href="Product.php?element=EXT001DENA">
+                <img src="./assets/images/Products/EXT/117-138AD_Denarius.png">
             </a>
         </section>
 
     </div>
 
-    <footer id="footer">
-        <a href="careers.php">Careers</a>
-        <a href="contact.php">Contact</a>
-    </footer>
+    <?php
+    require_once "footer.php";
+    ?>
 
 </body>
 </html>
